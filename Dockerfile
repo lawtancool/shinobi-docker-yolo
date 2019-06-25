@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y git wget imagemagick && \
     cp src/plugins/yolo/conf.sample.json src/plugins/yolo/conf.json
     
 #Install Node.js
-RUN wget https://deb.nodesource.com/setup_8.x && chmod +x setup_8.x && ./setup_8.x && sudo apt install nodejs -y && rm setup_8.x
+RUN wget https://deb.nodesource.com/setup_8.x && chmod +x setup_8.x && ./setup_8.x && apt install nodejs -y && rm setup_8.x
     
 #Install Node packages
 WORKDIR /src/plugins/yolo
