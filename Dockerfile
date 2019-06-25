@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y git wget imagemagick && \
     mkdir src/plugins/yolo/models && wget -O src/plugins/yolo/models/yolov3.weights https://pjreddie.com/media/files/yolov3-tiny.weights && \
     mkdir src/plugins/yolo/models/cfg && wget -O src/plugins/yolo/models/cfg/coco.data https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/coco.data && \
     wget -O src/plugins/yolo/models/cfg/yolov3.cfg https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-tiny.cfg && \
-    mkdir src/plugins/yolo/models/data && wget -O models/data/coco.names https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names && \
+    mkdir src/plugins/yolo/models/data && wget -O src/plugins/yolo/models/data/coco.names https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names && \
     cp src/plugins/yolo/conf.sample.json src/plugins/yolo/conf.json
     
 #Install Node.js
