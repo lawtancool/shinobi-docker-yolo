@@ -7,7 +7,10 @@ RUN apt-get update && apt-get install -y git wget imagemagick && \
     wget -O src/plugins/yolo/models/cfg/yolov3.cfg https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3-tiny.cfg && \
     mkdir src/plugins/yolo/models/data && wget -O src/plugins/yolo/models/data/coco.names https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names && \
     cp src/plugins/yolo/conf.sample.json src/plugins/yolo/conf.json
-    
+
+#Fix pluginBase.js issue
+RUN cp src/plugins/pluginBase.js src/plugins/yolo/
+
 #Install Node.js
 RUN wget https://deb.nodesource.com/setup_8.x && chmod +x setup_8.x && ./setup_8.x && apt install nodejs -y && rm setup_8.x
     
