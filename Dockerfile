@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04@sha256:5924847645292c84a2bfee2cde7fd1b4ca318f906b6a7f2b60ace05de787c096
 #Install requirements and download files
 RUN apt-get update && apt-get install -y git wget imagemagick && \
     git clone https://gitlab.com/Shinobi-Systems/Shinobi.git src/ && \
