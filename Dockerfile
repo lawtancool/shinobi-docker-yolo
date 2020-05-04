@@ -18,16 +18,15 @@ RUN npm install node-gyp -g --unsafe-perm && \
     npm install node-yolo-shinobi --unsafe-perm && \
     npm audit fix --force
 
-WORKDIR /src
-RUN npm install --unsafe-perm \
-    && npm audit fix --force
-
 FROM nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
 WORKDIR /
 COPY --from=0 /src /src
 RUN apt-get update && apt-get install -y git wget imagemagick && \
     wget https://deb.nodesource.com/setup_12.x && chmod +x setup_12.x && ./setup_12.x && apt-get install nodejs -y && rm setup_12.x
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN npm install -g pm2
+WORKDIR /src
+RUN npm install -g pm2 && \
+    npm install --unsafe-perm \
+    && npm audit fix --force
 
 CMD [ "pm2-runtime", "/src/plugins/yolo/shinobi-yolo.js" ]
